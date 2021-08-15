@@ -1,0 +1,93 @@
+@layout('layouts.dashboard')
+
+@section('title')
+<title>Events - Godswill Akpabio International Stadium</title>
+@endsection
+
+@section('content')
+@if(auth.user.role_id == '2')
+<div class="card w-50 mx-auto my-5 py-5 text-center">
+  <p class="mt-3 font-weight-bold text-center">Only Admin Have Access To The Dashboard</p>
+    <div class="field-wrapper">
+      <a href="{{ route('home') }}" class="btn btn-success">Go To Home Page</a>
+      <a href="{{ route('logout') }}" class="btn btn-danger">Sign Out</a>
+    </div>
+</div>
+@else
+<div class="container-fluid">
+
+               <!-- Page Heading -->
+               <div class="d-sm-flex align-items-center mb-4">
+                <h1 class="h3 mb-0 text-gray-800"><a href="{{route("dashboard")}}" class="text-gray-800 text-decoration-none"><i class="fas fa-arrow-circle-left"></i> Events</a></h1>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+                         <!-- Area Chart -->
+                         <div class="col-xl-8 col-lg-7">
+                          <div class="card shadow mb-4">
+                              <!-- Card Header - Dropdown -->
+                              <div
+                                  class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h6 class="m-0 font-weight-bold text-success">Add New Event</h6>
+                              </div>
+                              <!-- Card Body -->
+                              <div class="card-body">
+                                <form class="user">
+                                  <div class="form-group">
+                                          <input type="text" class="form-control form-control-user" id="event_name" name="event_name"
+                                              placeholder="Event Name">
+                                  </div>
+                                  <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="date" class="form-control form-control-user"
+                                            id="event_date" name="event_date" placeholder="Event Date">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="time" class="form-control form-control-user"
+                                            id="event_time" name="event_time" placeholder="Event Time">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                  <div class="col-sm-6 mb-3 mb-sm-0">
+                                      <input type="number" class="form-control form-control-user"
+                                          id="event_entry_regular_price" name="event_entry_regular_price" placeholder="Event Entry Price (Regular)">
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <input type="number" class="form-control form-control-user"
+                                          id="event_entry_vip_price" name="event_entry_vip_price" placeholder="Event Entry Price (VIP)">
+                                  </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="number" class="form-control form-control-user"
+                                        id="event_parking_regular_price" name="event_parking_regular_price" placeholder="Event Parking Price (Regular)">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="number" class="form-control form-control-user"
+                                        id="event_parking_vip_price" name="event_parking_vip_price" placeholder="Event Parking Price (VIP)">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                              <div class="col-sm-6 mb-3 mb-sm-0">
+                                  <input type="number" class="form-control form-control-user"
+                                      id="event_entry_ticket_slot" name="event_entry_ticket_slot" placeholder="Event Entry Slot">
+                              </div>
+                              <div class="col-sm-6">
+                                  <input type="number" class="form-control form-control-user"
+                                      id="event_car_parking_slot" name="event_car_parking_slot" placeholder="Event Parking Slot">
+                              </div>
+                          </div>
+                          <button class="btn btn-success btn-user btn-block" type="submit">Add Event</button>
+                              </form>
+                              </div>
+                          </div>
+                      </div>
+            </div>
+</div>
+@endif
+@endsection

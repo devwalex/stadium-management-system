@@ -1,0 +1,102 @@
+@layout('layouts.dashboard')
+
+@section('title')
+<title>About - Godswill Akpabio International Stadium</title>
+@endsection
+
+@section('content')
+@if(auth.user.role_id == '2')
+<div class="card w-50 mx-auto my-5 py-5 text-center">
+  <p class="mt-3 font-weight-bold text-center">Only Admin Have Access To The Dashboard</p>
+    <div class="field-wrapper">
+      <a href="{{ route('home') }}" class="btn btn-success">Go To Home Page</a>
+      <a href="{{ route('logout') }}" class="btn btn-danger">Sign Out</a>
+    </div>
+</div>
+@else
+<div class="container-fluid">
+
+               <!-- Page Heading -->
+               <div class="d-sm-flex align-items-center mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- Total Events Card -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Total Events</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">500</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Entry Tickets Card -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                      Total Entry Tickets</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">10,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-credit-card fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Total Car Parking Tickets Card -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card border-left-info shadow h-100 py-2">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    Total Car Parking Tickets</div>
+                                  <div class="h5 mb-0 font-weight-bold text-gray-800">5,000</div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-car fa-2x text-gray-300"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+                <!--Total Users Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                       Total Users</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">15,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+@endif
+@endsection

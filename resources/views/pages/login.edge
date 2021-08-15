@@ -1,0 +1,48 @@
+@layout('layouts.main')
+
+@section('title')
+<title>Login - Godswill Akpabio International Stadium</title>
+@endsection
+@section('content')
+<section id="login" class="pt-5">
+  @loggedIn
+  <div class="card w-50 mx-auto my-5 py-5 text-center">
+    <p class="mt-3 text-left">You are currently authenticated, you can perform any of the actions below</p>
+      <div class="field-wrapper">
+        <a href="{{ route('home') }}" class="btn btn-success">Go To Home Page</a>
+        <a href="{{ route('logout') }}" class="btn btn-danger">Sign Out</a>
+      </div>
+  </div>
+  @else
+
+  <h1 class="mb-4 text-success">Login</h1>
+
+<div class="container">
+<div class="my-5">
+    <form action="{{ route('login') }}" method="post" enctype="multipart/form-data" class="card p-5 row w-50 mx-auto needs-validation" novalidate>
+      {{ csrfField() }}
+      @include('modules.notifications')
+
+      {{--  Email Address Field  --}}
+      <div class="col-md-12 mb-3">
+        <label for="email" class="form-label">Email address *</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required>
+      </div>
+
+      {{--  Password Field  --}}
+      <div class="col-md-12 mb-3">
+        <label for="password" class="form-label">Password *</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <div class="col-md-12 mb-3">
+        <button class="btn btn-success" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+@endloggedIn
+
+</section>
+
+
+@endsection

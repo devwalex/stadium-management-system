@@ -37,7 +37,9 @@ header h1 {
 }
 #events h1,
 #car-parking h1,
-#about h1 {
+#about h1,
+#register h1,
+#login h1 {
   font-family: "Poppins", sans-serif;
   /* font-size: 60px; */
   text-align: center;
@@ -96,4 +98,9 @@ footer {
 }
 .footer-credits a {
   color: #ffffff;
+}
+
+.bg-gradient-primary {
+  background-color: green;
+  background-image: none;
 }
