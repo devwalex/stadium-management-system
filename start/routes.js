@@ -23,11 +23,17 @@ Route.on("/about").render("pages.about");
 Route.on("/register").render("pages.register");
 Route.on("/login").render("pages.login").as("loginView");
 Route.on("/dashboard").render("pages.admin.dashboard").as("dashboard");
-Route.on("/add-new-event").render("pages.admin.add-event").as("addEvent");
-Route.on("/all-events").render("pages.admin.all-events").as("allEvents");
+Route.on("/add-new-event").render("pages.admin.add-event").as("addEventView");
+// Route.on("/all-events").render("pages.admin.all-events").as("allEventsView");
 
 Route.post("/register-user", "User/RegisterController.register").as("register");
 Route.post("/login-user", "Authentication/LoginController.authenticateUser").as(
   "login"
 );
+Route.post("/add-event", "Admin/EventController.addEvent")
+  .as("addEvent")
+  .middleware(["auth:session"]);
+Route.get("/all-events", "Admin/EventController.allEvent")
+  .as("allEventsView")
+  .middleware(["auth:session"]);
 Route.get("/logout", "Authentication/LogoutController.logOut").as("logout");

@@ -33,41 +33,43 @@
                               </div>
                               <!-- Card Body -->
                               <div class="card-body">
-                                <form class="user">
+                                <form action="{{ route('addEvent') }}" method="post" enctype="multipart/form-data" class="user">
+                                    {{ csrfField() }}
+                                    @include('modules.notifications')
                                   <div class="form-group">
                                           <input type="text" class="form-control form-control-user" id="event_name" name="event_name"
-                                              placeholder="Event Name">
+                                              placeholder="Event Name" required>
                                   </div>
                                   <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="date" class="form-control form-control-user"
-                                            id="event_date" name="event_date" placeholder="Event Date">
+                                            id="event_date" name="event_date" placeholder="Event Date" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="time" class="form-control form-control-user"
-                                            id="event_time" name="event_time" placeholder="Event Time">
+                                            id="event_time" name="event_time" placeholder="Event Time" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                   <div class="col-sm-6 mb-3 mb-sm-0">
                                       <input type="number" class="form-control form-control-user"
-                                          id="event_entry_regular_price" name="event_entry_regular_price" placeholder="Event Entry Price (Regular)">
+                                          id="event_entry_regular_price" name="event_entry_regular_price" placeholder="Event Entry Price (Regular)" required>
                                   </div>
                                   <div class="col-sm-6">
                                       <input type="number" class="form-control form-control-user"
-                                          id="event_entry_vip_price" name="event_entry_vip_price" placeholder="Event Entry Price (VIP)">
+                                          id="event_entry_vip_price" name="event_entry_vip_price" placeholder="Event Entry Price (VIP)" required>
                                   </div>
                               </div>
 
                               <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="number" class="form-control form-control-user"
-                                        id="event_parking_regular_price" name="event_parking_regular_price" placeholder="Event Parking Price (Regular)">
+                                        id="event_parking_regular_price" name="event_parking_regular_price" placeholder="Event Parking Price (Regular)" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="number" class="form-control form-control-user"
-                                        id="event_parking_vip_price" name="event_parking_vip_price" placeholder="Event Parking Price (VIP)">
+                                        id="event_parking_vip_price" name="event_parking_vip_price" placeholder="Event Parking Price (VIP)" required>
                                 </div>
                             </div>
 
@@ -75,11 +77,11 @@
                             <div class="form-group row">
                               <div class="col-sm-6 mb-3 mb-sm-0">
                                   <input type="number" class="form-control form-control-user"
-                                      id="event_entry_ticket_slot" name="event_entry_ticket_slot" placeholder="Event Entry Slot">
+                                      id="event_entry_ticket_slot" name="event_entry_ticket_slot" placeholder="Event Entry Slot" required>
                               </div>
                               <div class="col-sm-6">
                                   <input type="number" class="form-control form-control-user"
-                                      id="event_car_parking_slot" name="event_car_parking_slot" placeholder="Event Parking Slot">
+                                      id="event_car_parking_slot" name="event_car_parking_slot" placeholder="Event Parking Slot" required>
                               </div>
                           </div>
                           <button class="btn btn-success btn-user btn-block" type="submit">Add Event</button>
