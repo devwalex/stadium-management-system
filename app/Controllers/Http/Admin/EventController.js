@@ -1,5 +1,6 @@
 "use strict";
 const Event = use("App/Models/Event");
+const Ticket = use("App/Models/Ticket");
 class EventController {
   async addEvent({ request, response, session }) {
     try {
@@ -56,6 +57,25 @@ class EventController {
       });
     } catch (error) {
       console.error(`Add Event Failed`, error);
+      session.flash({
+        dashboardNotification: {
+          type: "danger",
+          message: "An unexpected error occurred.",
+        },
+      });
+      return response.redirect("back");
+    }
+  }
+
+  async allTickets({ view, response, session }) {
+    try {
+      const tickets = await Ticket.query().with("event").fetch();
+      console.log("tickets", tickets.toJSON());
+      return view.render("pages.admin.tickets", {
+        tickets: tickets.toJSON(),
+      });
+    } catch (error) {
+      console.error(`All Tickets Failed`, error);
       session.flash({
         dashboardNotification: {
           type: "danger",

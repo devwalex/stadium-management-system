@@ -13,18 +13,19 @@ class PurchaseTicketController {
       const authenticatedUserId = await auth.current.user.id;
       const event = await Event.findBy("id", event_id);
 
-      const generateRandomNumber = randomString.generate({
-        length: 5,
-        charset: "numeric",
-      });
-
       const ticketSlotNumber =
-        ticket_type == "Entry Ticket"
+        ticket_category == "Entry Ticket"
           ? event.event_entry_ticket_slot
           : event.event_car_parking_slot;
 
       for (let i = 0; i < ticket_count; i++) {
-        const ticketCategoryCode = ticket_type == "Entry Ticket" ? "ET" : "PT";
+        const generateRandomNumber = randomString.generate({
+          length: 5,
+          charset: "numeric",
+        });
+
+        const ticketCategoryCode =
+          ticket_category == "Entry Ticket" ? "ET" : "PT";
         const ticket = new Ticket();
         ticket.ticket_reference = `GWAS-${generateRandomNumber}-${ticketCategoryCode}`;
         ticket.ticket_type = ticket_type;
@@ -46,7 +47,9 @@ class PurchaseTicketController {
           message: "Purchased Ticket Successful",
         },
       });
-      return response.redirect("back");
+      // return response.redirect("back");
+
+      return response.route("print");
     } catch (error) {
       console.error(`Purchase Ticket Failed`, error);
       session.flash({

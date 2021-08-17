@@ -67,37 +67,74 @@
       }, false)
     })
 })()
-$("#buy-event-ticket").click(function () {
+$(".buy-event-ticket").each(function () {
   // var event = ;
-  // console.log('event', event.toJSON());
-  $("#event-name").text($(this).data('event-name'))
-  $("#event-date-time").text($(this).data('event-date') +" "+ $(this).data('event-time'))
-  $("#regular-price").val($(this).data('event-entry-regular-price'))
-  $("#vip-price").val($(this).data('event-entry-vip-price'))
-  $("#regular-price-text").text("(REGULAR)" + " " + "₦"+$(this).data('event-entry-regular-price'))
-  $("#vip-price-text").text("(VIP)" + " " + "₦"+$(this).data('event-entry-vip-price'))
+  $(this).on("click", function(){
+        // For the boolean value
+        
 
-  var selected = $("input[type='radio'][name='price']:checked")
-  console.log("selected", selected, $(this).data('event-id'), $(this).data('event-category'), $("#event_id").val());
-  $("#event_id").val($(this).data('event-id'))
-  $("#ticket_category").val($(this).data('event-category'))
-  console.log("selected", selected, $(this).data('event-id'), $(this).data('event-category'), $("#event_id").val());
+        console.log('event', $(this).data('event-name'));
+      
+        $("#event-name").text($(this).data('event-name'))
+        $("#event-date-time").text($(this).data('event-date') +" "+ $(this).data('event-time'))
+        $("#regular-price").val($(this).data('event-entry-regular-price'))
+        $("#vip-price").val($(this).data('event-entry-vip-price'))
+        $("#regular-price-text").text("(REGULAR)" + " " + "₦"+$(this).data('event-entry-regular-price'))
+        $("#vip-price-text").text("(VIP)" + " " + "₦"+$(this).data('event-entry-vip-price'))
+      
+        var selected = $("input[type='radio'][name='price']:checked")
+        console.log("selected", selected, $(this).data('event-id'), $(this).data('event-category'), $("#event_id").val());
+        $("#event_id").val($(this).data('event-id'))
+        $("#ticket_category").val($(this).data('event-category'))
+        console.log("selected", selected, $(this).data('event-id'), $(this).data('event-category'), $("#event_id").val());
+    });
+
+});
+
+$(".buy-parking-ticket").each(function () {
+  // var event = ;
+  $(this).on("click", function(){
+        // For the boolean value
+        
+
+        $("#parking-name").text($(this).data('event-name') + " (Car Parking)")
+        $("#parking-date-time").text($(this).data('event-date') +" "+ $(this).data('event-time'))
+        $("#regular-parking-price").val($(this).data('event-parking-regular-price'))
+        $("#vip-parking-price").val($(this).data('event-parking-vip-price'))
+        $("#regular-parking-price-text").text("(REGULAR)" + " " + "₦"+$(this).data('event-parking-regular-price'))
+        $("#vip-parking-price-text").text("(VIP)" + " " + "₦"+$(this).data('event-parking-vip-price'))
+
+
+        console.log('event',  $("#event-name").text());
+      
+        var selected = $("input[type='radio'][name='price']:checked")
+        // console.log("selected", selected, $(this).data('event-id'), $(this).data('event-category'), $("#event_id").val());
+        $("#event_id").val($(this).data('event-id'))
+        $("#ticket_category").val($(this).data('event-category'))
+        // console.log("selected", selected, $(this).data('event-id'), $(this).data('event-category'), $("#event_id").val());
+    });
 
 });
 
 $("input[type='radio'][name='price']").change(function(){
 
   $('#total-amount').text(Number($(this).val()) * Number($('#ticket_count').val()))
+  $('#total-amount-parking').text(Number($(this).val()) * Number($('#ticket_count_parking').val()))
 
   var ticketType = $("#regular-price").val() == $(this).val() ? "Regular" : "VIP"
   $("#ticket_type").val(ticketType)
   console.log(' $("#ticket_type").val',  $("#ticket_type").val());
+
+  var ticketType = $("#regular-price-parking").val() == $(this).val() ? "Regular" : "VIP"
+  $("#ticket_type_parking").val(ticketType)
 });
 
 $('#ticket_count').on('input',function(){
-
   $('#total-amount').text("₦" + Number($(this).val()) * Number($("input[type='radio'][name='price']:checked").val()))
 });
 
+$('#ticket_count_parking').on('input',function(){
+  $('#total-amount-parking').text("₦" + Number($(this).val()) * Number($("input[type='radio'][name='price']:checked").val()))
+});
 
 </script>

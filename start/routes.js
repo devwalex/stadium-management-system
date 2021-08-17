@@ -24,6 +24,7 @@ Route.on("/register").render("pages.register");
 Route.on("/login").render("pages.login").as("loginView");
 // Route.on("/dashboard").render("pages.admin.dashboard").as("dashboard");
 Route.on("/add-new-event").render("pages.admin.add-event").as("addEventView");
+Route.on("/print").render("pages.print-receipt").as("print");
 // Route.on("/all-events").render("pages.admin.all-events").as("allEventsView");
 
 Route.post("/register-user", "User/RegisterController.register").as("register");
@@ -41,6 +42,14 @@ Route.post("/purchase-ticket", "User/PurchaseTicketController.purchaseTicket")
 
 Route.get("/all-events", "Admin/EventController.allEvent")
   .as("allEventsView")
+  .middleware(["auth:session"]);
+
+Route.get("/all-tickets", "Admin/EventController.allTickets")
+  .as("allTicketsView")
+  .middleware(["auth:session"]);
+
+Route.get("/print-receipt", "Admin/EventController.allTickets")
+  .as("allTicketsView")
   .middleware(["auth:session"]);
 
 Route.get("/dashboard", "Admin/DashboardController.analytics")

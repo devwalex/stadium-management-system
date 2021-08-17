@@ -1,7 +1,7 @@
 @layout('layouts.dashboard')
 
 @section('title')
-<title>Events - Godswill Akpabio International Stadium</title>
+<title>Tickets - Godswill Akpabio International Stadium</title>
 @endsection
 
 @section('content')
@@ -29,7 +29,7 @@
                               <!-- Card Header - Dropdown -->
                               <div
                                   class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h6 class="m-0 font-weight-bold text-success">All Events</h6>
+                                  <h6 class="m-0 font-weight-bold text-success">All Tickets</h6>
                               </div>
                               <!-- Card Body -->
                               <div class="card-body">
@@ -38,20 +38,24 @@
                                         <thead>
                                             <tr>
                                                 <th>S/N</th>
-                                                <th>Event Name</th>
-                                                <th>Event Date/Time</th>
-                                                <th>Event Entry Slot</th>
-                                                <th>Event Parking Slot</th>
+                                                <th>Ticket Reference</th>
+                                                <th>Ticket Type</th>
+                                                <th>Ticket Price</th>
+                                                <th>Space Number</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @each(event in events)
+                                        @each(ticket in tickets)
                                             <tr>
                                                 <td>{{ ($loop.index + 1) }}</td>
-                                                <td>{{ event.event_name }}</td>
-                                                <td>{{ event.event_date }} {{ event.event_time }}</td>
-                                                <td>{{ event.event_entry_ticket_slot }}</td>
-                                                <td>{{ event.event_car_parking_slot }}</td>
+                                                <td>{{ ticket.ticket_reference }}</td>
+                                                <td>{{ ticket.ticket_type }} </td>
+                                                @if(ticket.ticket_type == 'Entry Ticket')
+                                                <td>{{ ticket.ticket_category == 'Entry Ticket' &&  ticket.ticket_type == 'VIP' ? ticket.event.event_entry_vip_price : ticket.event.event_entry_regular_price }}</td>
+                                                @else
+                                                <td>{{ ticket.ticket_category == 'Parking Ticket' &&  ticket.ticket_type == 'VIP' ? ticket.event.event_parking_vip_price : ticket.event.event_parking_regular_price }}</td>
+                                                @endif
+                                                <td>{{ ticket.space_number }}</td>
                                             </tr>
                                             @endeach
                                         </tbody>
