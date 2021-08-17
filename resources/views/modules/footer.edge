@@ -9,7 +9,7 @@
         <h4>Quick Links</h4>
         <ul class="footer-menu__list">
           <li class="footer-menu__list-item"><a href="#">Home</a></li>
-          <li class="footer-menu__list-item"><a href="#">Tickets</a></li>
+          <li class="footer-menu__list-item"><a href="#">Events</a></li>
           <li class="footer-menu__list-item"><a href="#">Car Parking</a></li>
           <li class="footer-menu__list-item"><a href="#">About</a></li>
         </ul>
@@ -67,5 +67,37 @@
       }, false)
     })
 })()
+$("#buy-event-ticket").click(function () {
+  // var event = ;
+  // console.log('event', event.toJSON());
+  $("#event-name").text($(this).data('event-name'))
+  $("#event-date-time").text($(this).data('event-date') +" "+ $(this).data('event-time'))
+  $("#regular-price").val($(this).data('event-entry-regular-price'))
+  $("#vip-price").val($(this).data('event-entry-vip-price'))
+  $("#regular-price-text").text("(REGULAR)" + " " + "₦"+$(this).data('event-entry-regular-price'))
+  $("#vip-price-text").text("(VIP)" + " " + "₦"+$(this).data('event-entry-vip-price'))
+
+  var selected = $("input[type='radio'][name='price']:checked")
+  console.log("selected", selected, $(this).data('event-id'), $(this).data('event-category'), $("#event_id").val());
+  $("#event_id").val($(this).data('event-id'))
+  $("#ticket_category").val($(this).data('event-category'))
+  console.log("selected", selected, $(this).data('event-id'), $(this).data('event-category'), $("#event_id").val());
+
+});
+
+$("input[type='radio'][name='price']").change(function(){
+
+  $('#total-amount').text(Number($(this).val()) * Number($('#ticket_count').val()))
+
+  var ticketType = $("#regular-price").val() == $(this).val() ? "Regular" : "VIP"
+  $("#ticket_type").val(ticketType)
+  console.log(' $("#ticket_type").val',  $("#ticket_type").val());
+});
+
+$('#ticket_count').on('input',function(){
+
+  $('#total-amount').text("₦" + Number($(this).val()) * Number($("input[type='radio'][name='price']:checked").val()))
+});
+
 
 </script>

@@ -13,90 +13,21 @@
   <div class="container">
     <div class="row">
 
+      @each(event in events)
       <div class="col-md-4">
         <div class="card">
           <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C</h5>
+            <h5 class="card-title">{{event.event_name}}</h5>
             <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
               <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-success">BUY TICKETS</a>
+            </svg> <span style="vertical-align:middle">{{event.event_date}} {{event.event_time}}</span></h6>
+            <a id="buy-event-ticket" href="#" data-bs-toggle="modal" data-bs-target="#buyTicketModal" data-event-name="{{event.event_name}}" data-event-date="{{event.event_date}}" data-event-time="{{event.event_time}}" data-event-entry-regular-price="{{event.event_entry_regular_price}}" data-event-entry-vip-price="{{event.event_entry_vip_price}}" data-event-type="{{event.event_type}}" data-event-category="Entry Ticket"  data-event-id="{{event.id}}" class="btn btn-success">BUY TICKETS</a>
           </div>
         </div>
       </div>
+      @endeach
 
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-success">BUY TICKETS</a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-danger disabled" >SOLD OUT</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-4">
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-success">BUY TICKETS</a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-danger disabled" >SOLD OUT</a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-success">BUY TICKETS</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="text-center my-5">
       <a href="/events" class="btn btn-success btn-lg">View All Events</a>
@@ -113,90 +44,21 @@
   <div class="container">
     <div class="row">
 
+      @each(event in events)
       <div class="col-md-4">
         <div class="card">
           <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C (Car Parking)</h5>
+            <h5 class="card-title">{{event.event_name}} (Car Parking)</h5>
             <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
               <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-success">BUY TICKETS</a>
+            </svg> <span style="vertical-align:middle">{{event.event_date}} {{event.event_time}}</span></h6>
+            {{--  <a href="#" data-bs-toggle="modal" data-bs-target="#buyTicketModal" class="btn btn-success">BUY TICKETS</a>  --}}
+            <a id="buy-event-ticket" href="#" data-bs-toggle="modal" data-bs-target="#buyTicketModal" data-event-name="{{event.event_name}}" data-event-date="{{event.event_date}}" data-event-time="{{event.event_time}}" data-event-entry-regular-price="{{event.event_entry_regular_price}}" data-event-entry-vip-price="{{event.event_entry_vip_price}}" data-event-type="{{event.event_type}}" data-event-category="Parking Ticket"  data-event-id="{{event.id}}" class="btn btn-success">BUY TICKETS</a>
           </div>
         </div>
       </div>
-
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C (Car Parking)</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-success">BUY TICKETS</a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C (Car Parking)</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-danger disabled" >SOLD OUT</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-4">
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C (Car Parking)</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-success">BUY TICKETS</a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C (Car Parking)</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-danger disabled" >SOLD OUT</a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://npfl.ng/wp-content/uploads/2021/01/ErpK0znW4AImShR-1-1-750x430.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Akwa United v MFM F.C</h5>
-            <h6 class="card-title text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-            </svg> <span style="vertical-align:middle">August 7 2021, 2:00pm</span></h6>
-            <a href="#" class="btn btn-success">BUY TICKETS</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      @endeach
 
     <div class="text-center mt-5">
       <a href="/car-parking" class="btn btn-success btn-lg">View All Car Parking</a>
@@ -204,6 +66,46 @@
   </div>
 
 </section>
+
+    <!-- Buy Ticket Modal-->
+    <div class="modal fade" id="buyTicketModal" tabindex="-1" aria-labelledby="buyTicketModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="buyTicketModalLabel">Buy Ticket</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h3 id="event-name"></h3>
+            <p id="event-date-time"></p>
+            <h6 id="event-price">TICKET PRICES</h6>
+            <input type="radio" name="price" id="regular-price" value=""> <span id="regular-price-text"></span>
+            <br>
+            <input type="radio" name="price" id="vip-price" value=""> <span id="vip-price-text"></span>
+
+            <form action="{{ route('purchaseTicket') }}" method="post" enctype="multipart/form-data" class="mt-3 needs-validation" novalidate>
+              {{ csrfField() }}
+              @include('modules.notifications')
+        
+              {{--  Ticket Quantity Field  --}}
+              <div class="col-md-12 mb-3">
+                <label for="ticket_count" class="form-label">Ticket Quantity *</label>
+                <input type="number" class="form-control" id="ticket_count" name="ticket_count" min="1" value="1" placeholder="Enter Ticket Quantity" required>
+              </div>
+              <input type="text" hidden class="form-control" id="ticket_category" name="ticket_category" required>
+              <input type="text" hidden class="form-control" id="ticket_type" name="ticket_type" required>
+              <input type="text" hidden class="form-control" id="event_id" name="event_id" required>
+    
+            <h6>Total Amount: <span id="total-amount"></span> </h6>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Buy Ticket</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
 
 @endsection
 

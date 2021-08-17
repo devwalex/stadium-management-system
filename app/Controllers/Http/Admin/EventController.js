@@ -52,17 +52,8 @@ class EventController {
       const events = await Event.all();
       // console.log("events", events.toJSON());
       return view.render("pages.admin.all-events", {
-        // userRole,
         events: events.toJSON(),
       });
-
-      session.flash({
-        dashboardNotification: {
-          type: "success",
-          message: "Event Added Successful",
-        },
-      });
-      return response.redirect("back");
     } catch (error) {
       console.error(`Add Event Failed`, error);
       session.flash({
